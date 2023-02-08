@@ -1,11 +1,11 @@
-package org.loukili.walletservice.model;
+package org.loukili.discoveryserver.model;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.loukili.walletservice.dto.WalletResponse;
+import org.loukili.discoveryserver.dto.WalletResponse;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;

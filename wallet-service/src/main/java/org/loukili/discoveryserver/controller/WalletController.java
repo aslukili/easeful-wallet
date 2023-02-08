@@ -1,12 +1,11 @@
-package org.loukili.walletservice.controller;
+package org.loukili.discoveryserver.controller;
 
 
 import lombok.RequiredArgsConstructor;
-import org.loukili.walletservice.dto.WalletRequest;
-import org.loukili.walletservice.dto.WalletResponse;
-import org.loukili.walletservice.model.Wallet;
-import org.loukili.walletservice.service.WalletService;
-import org.loukili.walletservice.service.WalletServiceImpl;
+import org.loukili.discoveryserver.dto.WalletRequest;
+import org.loukili.discoveryserver.dto.WalletResponse;
+import org.loukili.discoveryserver.model.Wallet;
+import org.loukili.discoveryserver.service.WalletService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -25,6 +24,8 @@ public class WalletController {
   public List<WalletResponse> getAllWallets(){
     return walletService.getAllWallets();
   }
+
+
   @PostMapping("")
   @ResponseStatus(HttpStatus.CREATED)
   // TODO: convert Wallet to wallet response

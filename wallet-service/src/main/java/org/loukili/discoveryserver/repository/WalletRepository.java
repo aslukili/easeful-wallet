@@ -1,6 +1,6 @@
-package org.loukili.walletservice.repository;
+package org.loukili.discoveryserver.repository;
 
-import org.loukili.walletservice.model.Wallet;
+import org.loukili.discoveryserver.model.Wallet;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

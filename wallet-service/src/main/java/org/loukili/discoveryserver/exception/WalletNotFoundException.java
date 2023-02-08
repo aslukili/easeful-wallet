@@ -1,4 +1,4 @@
-package org.loukili.walletservice.exception;
+package org.loukili.discoveryserver.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

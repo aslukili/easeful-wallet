@@ -1,4 +1,4 @@
-package org.loukili.walletservice.dto;
+package org.loukili.discoveryserver.dto;
 
 
 import lombok.AllArgsConstructor;

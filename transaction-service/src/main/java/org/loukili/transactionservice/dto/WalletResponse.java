@@ -1,4 +1,4 @@
-package org.loukili.walletservice.dto;
+package org.loukili.transactionservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,3 +14,4 @@ public class WalletResponse {
   private String ownerId;
   private Double balance;
 }
+

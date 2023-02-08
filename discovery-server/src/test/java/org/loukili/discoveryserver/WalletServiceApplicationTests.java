@@ -1,11 +1,10 @@
-package org.loukili.walletservice;
+package org.loukili.discoveryserver;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.loukili.walletservice.dto.WalletRequest;
-import org.loukili.walletservice.repository.WalletRepository;
+import org.loukili.discoveryserver.dto.WalletRequest;
+import org.loukili.discoveryserver.repository.WalletRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
