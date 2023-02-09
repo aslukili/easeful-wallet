@@ -3,6 +3,7 @@ package org.loukili.transactionservice.service;
 import lombok.RequiredArgsConstructor;
 import org.loukili.transactionservice.dto.TransactionRequest;
 import org.loukili.transactionservice.dto.WalletResponse;
+import org.loukili.transactionservice.exception.NotEnoughBalanceException;
 import org.loukili.transactionservice.feignclients.WalletClient;
 import org.loukili.transactionservice.model.Transaction;
 import org.loukili.transactionservice.model.TransactionType;
@@ -23,12 +24,15 @@ public class TransactionServiceImpl implements TransactionService{
       .amount(transactionRequest.getAmount())
       .walletId(transactionRequest.getWalletId())
       .build();
-    // TODO: to withdraw, make an api call to wallet service to check for enough balance
+    // to withdraw, make an api call to wallet service to check for enough balance
     WalletResponse walletResponse = walletClient.findWalletById(transaction.getWalletId());
-    // TODO: for a successful withdraw, update the balance in wallet entity
-    System.out.println(walletResponse.getBalance());
+    if (walletResponse.getBalance() > transaction.getAmount()){
+      // for a successful withdrawal, update the balance in wallet entity
+      return transactionRepository.save(transaction);
+    } else {
+      throw new NotEnoughBalanceException();
+    }
 
-    return transactionRepository.save(transaction);
   }
 
   @Override
