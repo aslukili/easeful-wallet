@@ -9,7 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-@Entity
+@Entity()
 @Builder
 @Getter
 @Setter
