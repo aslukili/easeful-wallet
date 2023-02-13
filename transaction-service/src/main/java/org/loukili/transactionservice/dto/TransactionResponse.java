@@ -12,6 +12,7 @@ import org.loukili.transactionservice.model.TransactionType;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TransactionResponse {
+  private String message;
   private Long id;
   private Double amount;
   private TransactionType transactionType;

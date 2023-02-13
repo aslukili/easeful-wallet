@@ -1,11 +1,11 @@
-package org.loukili.discoveryserver.controller;
+package org.loukili.apigateway.controller;
 
 
 import lombok.RequiredArgsConstructor;
-import org.loukili.discoveryserver.dto.WalletRequest;
-import org.loukili.discoveryserver.dto.WalletResponse;
-import org.loukili.discoveryserver.model.Wallet;
-import org.loukili.discoveryserver.service.WalletService;
+import org.loukili.apigateway.dto.WalletRequest;
+import org.loukili.apigateway.dto.WalletResponse;
+import org.loukili.apigateway.model.Wallet;
+import org.loukili.apigateway.service.WalletService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -43,7 +43,6 @@ public class WalletController {
     return wallet.get().toResponse();
   }
 
-  // TODO: update wallet (put mapping)
   @PutMapping("/{walletId}")
   @ResponseStatus(HttpStatus.OK)
   public WalletResponse updateWallet(@PathVariable String walletId, @RequestBody WalletRequest walletRequest) {

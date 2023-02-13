@@ -1,12 +1,11 @@
-package org.loukili.discoveryserver;
+package org.loukili.apigateway;
 
-import org.loukili.discoveryserver.model.Wallet;
-import org.loukili.discoveryserver.repository.WalletRepository;
+import org.loukili.apigateway.model.Wallet;
+import org.loukili.apigateway.repository.WalletRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication

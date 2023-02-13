@@ -1,13 +1,13 @@
-package org.loukili.discoveryserver.service;
+package org.loukili.apigateway.service;
 
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.loukili.discoveryserver.dto.WalletRequest;
-import org.loukili.discoveryserver.dto.WalletResponse;
-import org.loukili.discoveryserver.exception.WalletNotFoundException;
-import org.loukili.discoveryserver.model.Wallet;
-import org.loukili.discoveryserver.repository.WalletRepository;
+import org.loukili.apigateway.dto.WalletRequest;
+import org.loukili.apigateway.dto.WalletResponse;
+import org.loukili.apigateway.exception.WalletNotFoundException;
+import org.loukili.apigateway.model.Wallet;
+import org.loukili.apigateway.repository.WalletRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

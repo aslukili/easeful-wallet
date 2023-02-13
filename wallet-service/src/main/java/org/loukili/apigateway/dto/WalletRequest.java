@@ -1,4 +1,4 @@
-package org.loukili.discoveryserver.dto;
+package org.loukili.apigateway.dto;
 
 
 import lombok.AllArgsConstructor;

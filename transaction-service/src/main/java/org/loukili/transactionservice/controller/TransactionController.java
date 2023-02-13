@@ -1,8 +1,10 @@
 package org.loukili.transactionservice.controller;
 
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
 import org.loukili.transactionservice.dto.TransactionRequest;
+import org.loukili.transactionservice.dto.TransactionResponse;
 import org.loukili.transactionservice.model.Transaction;
 import org.loukili.transactionservice.model.TransactionType;
 import org.loukili.transactionservice.service.TransactionService;
@@ -19,13 +21,28 @@ public class TransactionController {
   @ResponseStatus(HttpStatus.CREATED)
   // TODO convert Transaction to transaction response
   public Transaction withdraw(@RequestBody TransactionRequest transactionRequest) {
+    // TODO make sure the amount to draw is not a negative number
     return transactionService.withdraw(transactionRequest);
   }
 
   @PostMapping("/deposit")
   @ResponseStatus(HttpStatus.CREATED)
-  public Transaction deposit(@RequestBody TransactionRequest transactionRequest) {
-    return transactionService.deposit(transactionRequest);
+  @CircuitBreaker(name = "wallet", fallbackMethod = "fallBack")
+  public TransactionResponse deposit(@RequestBody TransactionRequest transactionRequest) {
+    Transaction transaction = transactionService.deposit(transactionRequest);
+    return TransactionResponse.builder()
+      .message("Transaction was successful")
+      .id(transaction.getId())
+      .amount(transaction.getAmount())
+      .transactionType(transaction.getTransactionType())
+      .walletId(transaction.getWalletId())
+      .build();
+  }
+
+  public TransactionResponse fallBack(TransactionRequest transactionRequest, Throwable throwable){
+    return TransactionResponse.builder()
+      .message("An error occurred, please try again later")
+      .build();
   }
 
 }

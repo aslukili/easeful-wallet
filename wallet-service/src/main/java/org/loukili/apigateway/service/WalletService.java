@@ -1,8 +1,8 @@
-package org.loukili.discoveryserver.service;
+package org.loukili.apigateway.service;
 
-import org.loukili.discoveryserver.dto.WalletRequest;
-import org.loukili.discoveryserver.dto.WalletResponse;
-import org.loukili.discoveryserver.model.Wallet;
+import org.loukili.apigateway.dto.WalletRequest;
+import org.loukili.apigateway.dto.WalletResponse;
+import org.loukili.apigateway.model.Wallet;
 
 import java.util.List;
 import java.util.Optional;

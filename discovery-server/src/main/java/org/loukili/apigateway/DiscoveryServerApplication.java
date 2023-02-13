@@ -1,4 +1,4 @@
-package org.loukili.discoveryserver;
+package org.loukili.apigateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
