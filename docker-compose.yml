@@ -25,3 +25,82 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+
+#  wallet-service:
+#    build: ./wallet-service
+#    container_name: wallet-service
+#    ports:
+#      - "8082:8082"
+#    depends_on:
+#      - mongodb
+#    networks:
+#      - spring
+#      - mongo-wallet
+#
+#  mongodb:
+#    image: mongo
+#    container_name: mongodb
+#    networks:
+#      - mongo-wallet
+#
+#  transaction-service:
+#    build: ./transaction-service
+#    container_name: transaction-service
+#    ports:
+#      - "8081:8081"
+#    depends_on:
+#      - transactiondb
+#    networks:
+#      - spring
+#      - postgres-transaction
+#
+#  transactiondb:
+#    image: postgres:12-alpine
+#    environment:
+#      - POSTGRES_DB=transaction_service
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=postgres
+#    networks:
+#      - postgres-transaction
+#
+#  discovery-server:
+#    build: ./discovery-server
+#    container_name: discovery-server
+#    ports:
+#      - "8761:8761"
+#    depends_on:
+#      - transaction-service
+#      - wallet-service
+#    networks:
+#      - spring
+#
+#  api-gateway:
+#    build: ./api-gateway
+#    container_name: api-gateway
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - gatewaydb
+#      - discovery-server
+#    networks:
+#      - spring
+#      - postgres-gateway
+#
+#  gatewaydb:
+#    image: postgres:12-alpine
+#    environment:
+#      - POSTGRES_DB=gateway_service
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=postgres
+#    networks:
+#      - postgres-gateway
+#
+#networks:
+#  spring:
+#    driver: bridge
+#  mongo-wallet:
+#    driver: bridge
+#  postgres-transaction:
+#    driver: bridge
+#  postgres-gateway:
+#    driver: bridge

@@ -15,7 +15,6 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class WalletServiceImpl implements WalletService{
   private final WalletRepository walletRepository;
 
@@ -26,7 +25,6 @@ public class WalletServiceImpl implements WalletService{
       .ownerId(walletRequest.getUserId())
       .build();
 
-    log.info("making a wallet");
     walletRepository.save(wallet);
 
     return mapToWalletResponse(wallet);
