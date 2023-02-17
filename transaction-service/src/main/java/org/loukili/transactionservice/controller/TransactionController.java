@@ -27,7 +27,7 @@ public class TransactionController {
 
   @PostMapping("/deposit")
   @ResponseStatus(HttpStatus.CREATED)
-  @CircuitBreaker(name = "wallet", fallbackMethod = "fallBack")
+  @CircuitBreaker(name = "wallet", fallbackMethod = "fallBackForDeposit")
   public TransactionResponse deposit(@RequestBody TransactionRequest transactionRequest) {
     Transaction transaction = transactionService.deposit(transactionRequest);
     return TransactionResponse.builder()
@@ -39,7 +39,7 @@ public class TransactionController {
       .build();
   }
 
-  public TransactionResponse fallBack(TransactionRequest transactionRequest, Throwable throwable){
+  public TransactionResponse fallBackForDeposit(TransactionRequest transactionRequest, Throwable throwable){
     return TransactionResponse.builder()
       .message("An error occurred, please try again later")
       .build();
